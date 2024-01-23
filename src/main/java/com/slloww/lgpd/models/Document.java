@@ -6,8 +6,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "db_document")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
