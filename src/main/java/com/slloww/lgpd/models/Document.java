@@ -15,12 +15,14 @@ public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotNull
     private String name;
     private String type;
-
     @Lob
     @Column(name = "fileData")
     private byte[] fileData;
+
+    @ManyToOne()
+    @JoinColumn(name = "client_id")
+    private Client client;
 }

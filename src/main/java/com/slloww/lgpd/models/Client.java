@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Client {
 
     @Id
@@ -24,6 +25,6 @@ public class Client {
     @NotNull
     @Column(unique = true)
     private String username;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private List<Document> document;
 }
