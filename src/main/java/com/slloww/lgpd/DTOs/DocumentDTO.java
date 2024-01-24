@@ -1,7 +1,6 @@
 package com.slloww.lgpd.DTOs;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Lob;
+import com.slloww.lgpd.models.Client;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DocumentDto {
+public class DocumentDTO {
 
     private String name;
     private String type;
     private byte[] fileData;
+    private Client client;
 }
