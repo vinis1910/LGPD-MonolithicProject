@@ -1,7 +1,9 @@
 package com.slloww.lgpd.controllers;
 
+import com.slloww.lgpd.DTOs.ClientRequestDTO;
 import com.slloww.lgpd.services.DocumentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +14,12 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/document")
-@RequiredArgsConstructor
 public class DocumentController {
 
-    private final DocumentService documentService;
+    @Autowired
+    private DocumentService documentService;
 
-    @PostMapping
+    @PostMapping("/{clientId}")
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         String upFile = documentService.uploadFile(file);
         return ResponseEntity.status(HttpStatus.OK)
