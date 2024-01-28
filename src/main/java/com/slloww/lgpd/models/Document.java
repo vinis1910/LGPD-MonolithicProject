@@ -3,6 +3,7 @@ package com.slloww.lgpd.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "db_document")
@@ -23,6 +24,17 @@ public class Document {
     private byte[] fileData;
 
     @ManyToOne()
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Override
+    public String toString() {
+        return "Document{" +
+                "id=" + id +
+                " name=" + name +
+                " type=" + type +
+                // Outros campos
+                ", clientId=" + (user != null ? user.getId() : null) + // Evita a recursão infinita aqui
+                '}';
+    }
 }
