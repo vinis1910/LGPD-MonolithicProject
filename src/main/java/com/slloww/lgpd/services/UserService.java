@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
 public class ClientService {
 
     @Autowired
@@ -19,6 +18,7 @@ public class ClientService {
     @Autowired
     private ClientDtoConverter clientDtoConverter;
 
+    @Transactional
     public void create(ClientRequestDTO clientRequestDto){
         if(clientRepository.findByUsername(clientRequestDto.getUsername()).isPresent()) throw new UsernameAlreadyExists();
         if(clientRepository.findByEmail(clientRequestDto.getEmail()).isPresent()) throw new EmailAlreadyExists();

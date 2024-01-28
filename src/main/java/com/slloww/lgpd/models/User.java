@@ -25,6 +25,17 @@ public class Client {
     @NotNull
     @Column(unique = true)
     private String username;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Document> document;
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", document=" + document +
+                '}';
+    }
 }

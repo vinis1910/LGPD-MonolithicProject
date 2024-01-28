@@ -10,9 +10,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientResponseDTO {
+public class UserResponseDTO {
 
-    private Long id;
     private String email;
     private String password;
     private String username;
