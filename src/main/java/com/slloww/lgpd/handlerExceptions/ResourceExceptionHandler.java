@@ -1,6 +1,8 @@
 package com.slloww.lgpd.handlerExceptions;
 
 import com.slloww.lgpd.services.exceptions.EmailAlreadyExists;
+import com.slloww.lgpd.services.exceptions.ErrorGeneratingToken;
+import com.slloww.lgpd.services.exceptions.UserNotFoundException;
 import com.slloww.lgpd.services.exceptions.UsernameAlreadyExists;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,17 @@ public class ResourceExceptionHandler {
     public ResponseEntity<String> EmailAlreadyExists(EmailAlreadyExists exception) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> UserNotFoundException(UserNotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @ExceptionHandler(ErrorGeneratingToken.class)
+    public ResponseEntity<String> ErrorGeneratingToken(ErrorGeneratingToken exception) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exception.getMessage());
+    }
+
 
 
 

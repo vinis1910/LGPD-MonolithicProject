@@ -6,7 +6,7 @@ import java.util.zip.Inflater;
 
 public class DocumentUtils {
 
-    public static byte[] compressImage(byte[] data) {
+    public static byte[] compressPdf(byte[] data) {
         Deflater deflater = new Deflater();
         deflater.setLevel(Deflater.BEST_COMPRESSION);
         deflater.setInput(data);
@@ -27,7 +27,7 @@ public class DocumentUtils {
 
 
 
-    public static byte[] decompressImage(byte[] data) {
+    public static byte[] decompressPdf(byte[] data) {
         Inflater inflater = new Inflater();
         inflater.setInput(data);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
