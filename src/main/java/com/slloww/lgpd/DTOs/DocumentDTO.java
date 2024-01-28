@@ -1,6 +1,6 @@
 package com.slloww.lgpd.DTOs;
 
-import com.slloww.lgpd.models.Client;
+import com.slloww.lgpd.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,5 +13,5 @@ public class DocumentDTO {
     private String name;
     private String type;
     private byte[] fileData;
-    private Client client;
+    private User user;
 }
