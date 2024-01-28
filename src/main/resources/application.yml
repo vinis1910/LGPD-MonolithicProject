@@ -7,5 +7,36 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+      jdbc:
+        lob:
+          non_contextual_creation: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 5MB
+      max-request-size: 10MB
+  application:
+    name: lgpd
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAU6GDX2OZTCUTUSTK
+      secret-key: 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
+    region:
+      static: sa-east-1
+    stack:
+      auto: false
+application:
+  bucket:
+    name: lgpd.vinicius
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}
+
+
 server:
   port: 8082
