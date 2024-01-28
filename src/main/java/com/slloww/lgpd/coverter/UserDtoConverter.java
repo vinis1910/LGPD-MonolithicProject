@@ -1,23 +1,32 @@
 package com.slloww.lgpd.coverter;
 
-import com.slloww.lgpd.DTOs.ClientRequestDTO;
+import com.slloww.lgpd.DTOs.UserRequestDTO;
+import com.slloww.lgpd.DTOs.UserResponseDTO;
 import com.slloww.lgpd.models.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClientDtoConverter {
+public class UserDtoConverter {
 
     @Autowired
     private ModelMapper modelMapper;
 
-    public ClientRequestDTO convertClientToClientDTO(User user){
-        return modelMapper.map(user, ClientRequestDTO.class);
+    public UserRequestDTO convertUsertToUserRequestDTO(User user){
+        return modelMapper.map(user, UserRequestDTO.class);
     }
 
-    public User convertClientDTOToClient(ClientRequestDTO clientRequestDTO){
-        return modelMapper.map(clientRequestDTO, User.class);
+    public User convertUserRequestDTOToUser(UserRequestDTO userRequestDTO){
+        return modelMapper.map(userRequestDTO, User.class);
+    }
+
+    public UserResponseDTO convertUserToUserResponseDTO(User user){
+        return modelMapper.map(user, UserResponseDTO.class);
+    }
+
+    public User convertUserResponseDTOToUser(UserResponseDTO userRequestDTO){
+        return modelMapper.map(userRequestDTO, User.class);
     }
 
 }
