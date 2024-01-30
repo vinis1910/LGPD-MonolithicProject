@@ -19,22 +19,10 @@ public class Document {
     @NotNull
     private String name;
     private String type;
-    @Lob
-    @Column(name = "fileData")
-    private byte[] fileData;
+    private String urlS3;
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Override
-    public String toString() {
-        return "Document{" +
-                "id=" + id +
-                " name=" + name +
-                " type=" + type +
-                // Outros campos
-                ", clientId=" + (user != null ? user.getId() : null) + // Evita a recursão infinita aqui
-                '}';
-    }
 }
